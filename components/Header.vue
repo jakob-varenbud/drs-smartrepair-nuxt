@@ -72,7 +72,7 @@
           </div>
         </div>
       </div>
-      <div class="flex flex-col justify-center w-full h-96">
+      <div class="flex flex-col justify-center w-full h-full">
         <div class="background-image"></div>
       </div>
     </div>
@@ -81,9 +81,9 @@
 
 <style>
 .background-image {
-  height: 100px;
   background-image: url("~/assets/images/drs-smartrepair-hero.png");
   background-size: cover; /* Stellt sicher, dass das Bild den Container vollständig abdeckt */
   background-position: center; /* Zentriert das Bild */
+  @apply rounded-2xl h-3/4;
 }
 </style>
