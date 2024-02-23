@@ -1,5 +1,7 @@
 <template>
-  <Navbar />
-  <Header />
-  <MultiStepForm />
+  <div>
+    <Navbar />
+    <Header />
+    <MultiStepForm />
+  </div>
 </template>
