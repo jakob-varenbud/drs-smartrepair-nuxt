@@ -13,4 +13,7 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
+  env: {
+    apiKey: process.env.HUBSPOT_API_KEY, // Zugriff auf die Umgebungsvariable
+  },
 });

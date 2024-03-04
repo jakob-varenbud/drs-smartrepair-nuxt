@@ -62,13 +62,13 @@
 export default {
   setup() {
     const step = ref(1);
-    const selectedCheckboxes = ref([]);
+    const selectedCheckboxes = ref([3]);
     const formData = ref({
-      preName: "",
-      name: "",
-      email: "",
-      phone: "",
-      message: "",
+      preName: "Hans",
+      name: "IMGlück",
+      email: "foo@bar.com",
+      phone: "0098765434567",
+      message: "geht doch",
     });
 
     const checkboxData = [
@@ -103,9 +103,22 @@ export default {
       );
     });
 
-    const submitForm = () => {
+    const submitForm = async () => {
       console.log("Formular Daten:", formData.value);
-      // Hier könnten Sie weitere Aktionen durchführen, wie z.B. die Daten an einen Server senden
+      // Formdaten an eigenen Endpunkt
+      await useFetch("/api/hallo", {
+        method: "post",
+        // body: formData,
+
+        body: {
+          preName: formData.value.preName,
+          name: formData.value.name,
+          email: formData.value.email,
+          phone: formData.value.phone,
+          message: formData.value.message,
+          delle: selectedCheckboxes,
+        },
+      });
     };
 
     return {
