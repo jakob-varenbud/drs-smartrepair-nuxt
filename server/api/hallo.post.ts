@@ -1,21 +1,21 @@
 export default defineEventHandler(async (event) => {
+  console.log("API Key:", process.env.HUBSPOT_API_KEY);
+  const config = useRuntimeConfig();
+  const apiKey = config.private.apiKey;
   const body = await readBody(event);
   //console.log(body.delle.join(";"));
 
   //return;
 
-  let validData = false;
+  //let validData = false;
   // hier daten checken
-  validData = true;
+  //validData = true;
 
   // und wenn fehlerhaft, entsprechende nachricht an vue client senden
-  if (!validData) {
-    console.log("Daten invalide, meldung an client");
-    return "Fehler bei der Dateneingabe";
-  }
-
-  const config = useRuntimeConfig();
-  const apiKey = config.env.apiKey;
+  //if (!validData) {
+  //console.log("Daten invalide, meldung an client");
+  //return "Fehler bei der Dateneingabe";
+  //}
 
   const result = await $fetch("https://api.hubapi.com/contacts/v1/contact/", {
     method: "post",

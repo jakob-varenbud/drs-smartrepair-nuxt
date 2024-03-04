@@ -13,7 +13,13 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  env: {
-    apiKey: process.env.HUBSPOT_API_KEY, // Zugriff auf die Umgebungsvariable
+  runtimeConfig: {
+    private: {
+      apiKey: process.env.HUBSPOT_API_KEY, // Server-seitige Umgebungsvariable
+    },
+    // publicRuntimeConfig kann hier definiert werden, wenn nötig
+    public: {
+      // Beispiel: publicContentApiKey: process.env.PUBLIC_CONTENT_API_KEY
+    },
   },
 });

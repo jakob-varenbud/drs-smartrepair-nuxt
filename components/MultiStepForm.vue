@@ -104,21 +104,24 @@ export default {
     });
 
     const submitForm = async () => {
-      console.log("Formular Daten:", formData.value);
-      // Formdaten an eigenen Endpunkt
-      await useFetch("/api/hallo", {
-        method: "post",
-        // body: formData,
-
-        body: {
-          preName: formData.value.preName,
-          name: formData.value.name,
-          email: formData.value.email,
-          phone: formData.value.phone,
-          message: formData.value.message,
-          delle: selectedCheckboxes,
-        },
-      });
+      try {
+        console.log("Formular Daten:", formData.value);
+        // Formdaten an eigenen Endpunkt senden
+        const response = await useFetch("/api/hallo", {
+          method: "post",
+          body: {
+            preName: formData.value.preName,
+            name: formData.value.name,
+            email: formData.value.email,
+            phone: formData.value.phone,
+            message: formData.value.message,
+            delle: selectedCheckboxes,
+          },
+        });
+        console.log("Serverantwort:", response);
+      } catch (error) {
+        console.error("Fehler beim Senden des Formulars:", error);
+      }
     };
 
     return {
