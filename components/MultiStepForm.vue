@@ -115,7 +115,6 @@ export default {
             email: formData.value.email,
             phone: formData.value.phone,
             message: formData.value.message,
-            delle: selectedCheckboxes,
           },
         });
         console.log("Serverantwort:", response);
